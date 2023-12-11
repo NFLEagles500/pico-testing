@@ -36,6 +36,9 @@ def step(direction, steps, delay):
             stepsPosition = stepsPosition + direction
             # Delay for the specified amount of time before taking the next step
             sleep(delay)
+        #if you don't need the motor to hold its position, turn off the controller pins
+        for pinout in stepper_pins:
+            pinout.value(0)
 
 stepsPosition = 'unknown'
 step_index = 0
